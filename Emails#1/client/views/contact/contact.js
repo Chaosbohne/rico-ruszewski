@@ -9,8 +9,7 @@ Template.Contact.events({
     var contactEmailValue = template.find('[name=contactEmail]').value;
     var contactMessagValue = template.find('[name=contactMessage]').value;   
     
-    Meteor.call('sendEmail', contactNameValue, contactEmailValue, contactMessagValue, function(error) {
-    });
+    Meteor.call('sendEmail', contactNameValue, contactEmailValue, contactMessagValue);
   }
 });
 
