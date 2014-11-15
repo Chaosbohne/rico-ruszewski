@@ -1,0 +1,15 @@
+/*****************************************************************************/
+/* Client App Namespace  */
+/*****************************************************************************/
+_.extend(App, {
+});
+
+App.helpers = {
+};
+
+_.each(App.helpers, function (helper, key) {
+  Handlebars.registerHelper(key, helper);
+});
+
+Template.registerHelper("Schemas", Schemas);
+console.log(Schemas);

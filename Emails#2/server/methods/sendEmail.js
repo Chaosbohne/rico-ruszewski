@@ -1,19 +1,14 @@
 Meteor.methods({
-  'sendEmail': function (contactFields) {
-    if(contactFields) {
-      var contactContext = Schemas.ContactSchema.newContext();
-      var isValid = contactContext.validate(contactFields);      
+  'sendEmail': function (contactFields) {     
+    check(contactFields, Schemas.ContactSchema);
 
-      if(isValid) {
-        this.unblock();
+    this.unblock();
 
-        Email.send({
-          to: "blog@trash-mail.com", //Receiver
-          from: contactFields.contactEmail, //Sender
-          subject: 'Email from ' + contactFields.contactEmail, //Subject
-          text: contactFields.contactMessage //Message
-        });          
-      }
-    }
+    Email.send({
+      to: "blog@trash-mail.com", //Receiver
+      from: contactFields.contactEmail, //Sender
+      subject: 'Email from ' + contactFields.contactEmail, //Subject
+      text: contactFields.contactMessage //Message
+    });          
   }
 });
