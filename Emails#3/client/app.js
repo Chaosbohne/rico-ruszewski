@@ -12,4 +12,3 @@ _.each(App.helpers, function (helper, key) {
 });
 
 Template.registerHelper("Schemas", Schemas);
-console.log(Schemas);
